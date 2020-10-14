@@ -20,34 +20,15 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
-    # when /^(.*)'s profile page$/i
-    #   user_profile_path(User.find_by_login($1))
+
     
-    # when /^the home\s?page$/ then '/movies'
-
-    # when /^the RottenPotatoes home page$/ then '/movies'
-
-    # when /^the edit page for "(.*)"$/ then
-    #   edit_movie_path(Movie.where("title = ?",$1).first)
-
-    # when /^the details page for "(.*)"$/ then
-    #   movie_path(Movie.where("title = ?",$1).first)
-
-    # when /^the Similar Movies page for "(.*)"$/ then
-    #   search_director_path(Movie.where("title = ?",$1).first)
-
-    # when /^the "Create New Movie" page$/ then
-    #   new_movie_path
-    
-      #   when /^the home\s?page$/ 
-      # movies_path
-    when /^the edit page for "(.*)"$/
+    when /^the edit page for "(.*)"$/i
       movie_id = Movie.find_by(title: $1).id
       edit_movie_path(movie_id)
-    when /^the details page for "(.+)"$/
+    when /^the details page for "(.+)"$/i
       movie = Movie.find_by(title: $1)
       movie_path(movie)
-    when /^the Similar Movies page for "(.+)"/
+    when /^the Similar Movies page for "(.+)"/i
       search_director_path(Movie.find_by(title: $1))
       
     when /^the RottenPotatoes home page$/ then '/movies'
